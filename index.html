@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תרשים זרימה אינטראקטיבי</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>תרשים זרימה אינטראקטיבי</h1>
+    </header>
+    <div id="main-container">
+        <nav id="toolbar" class="vertical-toolbar">
+            <button id="toggleToolbar" title="הרחב/כווץ סרגל כלים"><i class="fas fa-bars"></i></button>
+            <button id="addNode" title="הוסף צומת"><i class="fas fa-plus-circle"></i></button>
+            <button id="addArrow" title="הוסף חץ"><i class="fas fa-arrow-right"></i></button>
+            <button id="deleteSelected" title="מחק נבחרים"><i class="fas fa-trash"></i></button>
+            <button id="zoomIn" title="הגדל תצוגה"><i class="fas fa-search-plus"></i></button>
+            <button id="zoomOut" title="הקטן תצוגה"><i class="fas fa-search-minus"></i></button>
+            <button id="saveChart" title="שמור תרשים"><i class="fas fa-save"></i></button>
+            <button id="loadChart" title="טען תרשים"><i class="fas fa-folder-open"></i></button>
+            <button id="exportPDF" title="ייצא ל-PDF"><i class="fas fa-file-pdf"></i></button>
+        </nav>
+        <div id="chartContainer">
+            <svg id="chart"></svg>
+        </div>
+        <aside id="side-menu">
+            <button id="toggleSideMenu" title="הגדרות מתקדמות"><i class="fas fa-cog"></i></button>
+            <div id="sideMenuContent">
+                <h3>הגדרות מתקדמות</h3>
+                <!-- כאן יתווספו אפשרויות נוספות בעתיד -->
+            </div>
+        </aside>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>הוספת צומת חדש</h2>
+            <label for="nodeLabel">תווית:</label>
+            <input type="text" id="nodeLabel">
+            <label for="nodeColor">צבע:</label>
+            <input type="color" id="nodeColor" value="#3498db">
+            <label for="nodeShape">צורה:</label>
+            <select id="nodeShape">
+                <option value="rect">מלבן</option>
+                <option value="circle">עיגול</option>
+                <option value="star">כוכב</option>
+                <option value="square">ריבוע</option>
+            </select>
+            <label for="nodeSize">גודל:</label>
+            <input type="range" id="nodeSize" min="50" max="200" value="100">
+            <div class="modal-buttons">
+                <button id="saveNode" class="btn primary">שמור</button>
+                <button id="cancelNode" class="btn danger">ביטול</button>
+            </div>
+        </div>
+    </div>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>עריכת תווית</h2>
+            <textarea id="editNodeLabel" rows="4"></textarea>
+            <div class="modal-buttons">
+                <button class="btn primary save-button">שמור</button>
+                <button class="btn danger cancel-button">ביטול</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
